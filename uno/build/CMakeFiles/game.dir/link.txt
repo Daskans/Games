@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/game.dir/game.c.o CMakeFiles/game.dir/deck.c.o CMakeFiles/game.dir/card.c.o CMakeFiles/game.dir/error.c.o -o game  -lm -lbsd 
