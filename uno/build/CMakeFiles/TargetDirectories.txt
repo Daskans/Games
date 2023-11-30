@@ -1,3 +1,3 @@
-/home/daskans/Code/prog C/uno/build/CMakeFiles/game.dir
-/home/daskans/Code/prog C/uno/build/CMakeFiles/edit_cache.dir
-/home/daskans/Code/prog C/uno/build/CMakeFiles/rebuild_cache.dir
+/home/daskans/Code/Games/uno/build/CMakeFiles/game.dir
+/home/daskans/Code/Games/uno/build/CMakeFiles/edit_cache.dir
+/home/daskans/Code/Games/uno/build/CMakeFiles/rebuild_cache.dir

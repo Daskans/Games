@@ -1,10 +1,18 @@
 #include "uno.h"
 
-card_t *card_random_create() {
+card_t *card_play(player_t *player, uint card_index) {
+    error_player(player, "card_play");
+
+}
+
+card_t *card_random_create(player_t *player) {
     card_t *new_card = malloc(sizeof(card_t));
-    error_card(new_card);
+    error_card(new_card, "card_random_create");
     new_card->color = card_get_random_color();
     new_card->value = card_get_random_value(new_card->color);
+    if (player) {
+        player->nb_card++;
+    }
     return new_card;
 }
 
@@ -19,7 +27,7 @@ uint card_get_random_value(color_t color) {
 }
 
 uint card_get_random_value_black(void) {
-    uint value = arc4random_uniform(STD_NB_BLACK_CARD);
+    uint value = rand()%STD_NB_BLACK_CARD;
     if (value < STD_NB_PLUS_4) {
         return VALUE_PLUS_4;
     } else {
@@ -28,11 +36,11 @@ uint card_get_random_value_black(void) {
 }
 
 uint card_get_random_value_color(void) {
-    uint value = arc4random_uniform(STD_NB_COLOR_CARD);
+    uint value = rand()%STD_NB_COLOR_CARD;
     if (value < STD_NB_ZERO) {
         return 0; 
     } else if (value < STD_NB_NUMBER + STD_NB_ZERO) {
-        return arc4random_uniform(9)+1;
+        return (rand()%9)+1;
     } else {
         if (value < STD_NB_COLOR_CARD - STD_NB_PLUS_2 - STD_NB_REVERSE) {
             return VALUE_PASS;
@@ -45,23 +53,23 @@ uint card_get_random_value_color(void) {
 }
 
 color_t card_get_random_color(void) {
-    uint rand = arc4random_uniform(STD_NB_CARD);
-    if (rand < STD_NB_BLACK_CARD) {
+    uint randC = rand()%STD_NB_CARD;
+    if (randC < STD_NB_BLACK_CARD) {
         return COLOR_BLACK;
     } else {
-        uint rand_color = arc4random_uniform(4) - 5;
+        uint rand_color = (rand()%4) - 5;
         return rand_color;
     }
 }
 
-void card_print(card_t *card) {
-    error_card(card);
+void card_print(card_t *card, FILE *file) {
+    error_card(card, "card_print");
     char *color = card_print_color(card->color);
     if (card->value < 10) {
-        printf("( %s%d%s )", color, card->value, RESET);
+        fprintf(file, "( %s%d%s )", color, card->value, RESET);
     } else {
         char *value = card_print_value(card->value);
-        printf("( %s%s%s )", color, value, RESET);
+        fprintf(file, "( %s%s%s )", color, value, RESET);
     }
 }
 

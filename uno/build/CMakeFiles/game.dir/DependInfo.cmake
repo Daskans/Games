@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/daskans/Code/prog C/uno/card.c" "CMakeFiles/game.dir/card.c.o" "gcc" "CMakeFiles/game.dir/card.c.o.d"
-  "/home/daskans/Code/prog C/uno/deck.c" "CMakeFiles/game.dir/deck.c.o" "gcc" "CMakeFiles/game.dir/deck.c.o.d"
-  "/home/daskans/Code/prog C/uno/error.c" "CMakeFiles/game.dir/error.c.o" "gcc" "CMakeFiles/game.dir/error.c.o.d"
-  "/home/daskans/Code/prog C/uno/game.c" "CMakeFiles/game.dir/game.c.o" "gcc" "CMakeFiles/game.dir/game.c.o.d"
+  "/home/daskans/Code/Games/uno/card.c" "CMakeFiles/game.dir/card.c.o" "gcc" "CMakeFiles/game.dir/card.c.o.d"
+  "/home/daskans/Code/Games/uno/deck.c" "CMakeFiles/game.dir/deck.c.o" "gcc" "CMakeFiles/game.dir/deck.c.o.d"
+  "/home/daskans/Code/Games/uno/error.c" "CMakeFiles/game.dir/error.c.o" "gcc" "CMakeFiles/game.dir/error.c.o.d"
+  "/home/daskans/Code/Games/uno/game.c" "CMakeFiles/game.dir/game.c.o" "gcc" "CMakeFiles/game.dir/game.c.o.d"
   )
 
 # Targets to which this target links.

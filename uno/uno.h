@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
 #include <math.h>
 #include <time.h>
-#include <bsd/stdlib.h>
 
 // define MAX and STD
 #define MAX_NAME_SIZE 20
@@ -40,7 +41,9 @@
 #define BOLDYELLOW  "\033[1m\033[33m"
 #define BOLDBLUE  "\033[1m\033[34m"
 #define BOLDWHITE  "\033[1m\033[37m"
-#define RESET  "\033[0m"  
+#define RESET  "\033[0m"
+
+typedef unsigned int uint;
 
 typedef int color_t;
 
@@ -59,34 +62,40 @@ typedef struct deck {
 typedef struct player {
     char name[MAX_NAME_SIZE];
     deck_t *deck;
+    uint nb_card;
 } player_t;
-
-typedef struct list_player {
-    player_t *players;
-    size_t size;
-} list_player_t;
 
 typedef struct game {
     card_t current_card;
-    player_t next_player;
+    player_t **player_list;
+    uint nb_player;
+    player_t *current_player;
  } game_t;
 
 // implement errors
-void error_player(player_t *player);
-void error_deck(deck_t **deck);
-void error_card(card_t *card);
+void error_game(game_t *game, char *function);
+void error_player(player_t *player, char *function);
+void error_deck(deck_t *deck, char *function);
+void error_card(card_t *card, char *function);
 
 // implement deck actions
 void deck_create(player_t *player);
-void deck_append(card_t *card, deck_t **deck, player_t *player);
-void deck_print(deck_t **deck, player_t *player);
+void deck_append(card_t *card, deck_t *deck, player_t *player);
+void deck_print(player_t *player, FILE *file);
 
 //implement card actions
-card_t *card_random_create(void);
+card_t *card_random_create(player_t *player);
 uint card_get_random_value(color_t color);
 uint card_get_random_value_black(void);
 uint card_get_random_value_color(void);
 color_t card_get_random_color(void);
-void card_print(card_t *card);
+void card_print(card_t *card, FILE *file);
 char *card_print_value(uint value);
 char *card_print_color(color_t color);
+
+//implement game actions
+void game_print_help(void);
+bool game_won(game_t *game);
+void game_update(game_t *game);
+void game_init(game_t *game);
+int game_play(game_t *game);
