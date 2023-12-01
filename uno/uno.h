@@ -66,10 +66,10 @@ typedef struct player {
 } player_t;
 
 typedef struct game {
-    card_t current_card;
+    card_t *current_card;
     player_t **player_list;
     uint nb_player;
-    player_t *current_player;
+    uint current_player;
  } game_t;
 
 // implement errors
@@ -77,14 +77,17 @@ void error_game(game_t *game, char *function);
 void error_player(player_t *player, char *function);
 void error_deck(deck_t *deck, char *function);
 void error_card(card_t *card, char *function);
+void error_index(player_t *player, uint card_index, char *function);
 
 // implement deck actions
 void deck_create(player_t *player);
-void deck_append(card_t *card, deck_t *deck, player_t *player);
+void deck_append(card_t *card, player_t *player);
+void deck_remove(uint card_index, player_t *player);
 void deck_print(player_t *player, FILE *file);
+card_t *deck_get_card_from_index(player_t *player, uint index);
 
-//implement card actions
-card_t *card_random_create(player_t *player);
+// implement card actions
+card_t *card_random_create(void);
 uint card_get_random_value(color_t color);
 uint card_get_random_value_black(void);
 uint card_get_random_value_color(void);
@@ -92,10 +95,12 @@ color_t card_get_random_color(void);
 void card_print(card_t *card, FILE *file);
 char *card_print_value(uint value);
 char *card_print_color(color_t color);
+void card_play(game_t* game, uint card_index);
 
-//implement game actions
+// implement game actions
 void game_print_help(void);
 bool game_won(game_t *game);
 void game_update(game_t *game);
 void game_init(game_t *game);
 int game_play(game_t *game);
+void game_cycle_player(game_t *game);

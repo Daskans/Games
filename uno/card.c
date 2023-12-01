@@ -1,18 +1,41 @@
 #include "uno.h"
 
-card_t *card_play(player_t *player, uint card_index) {
-    error_player(player, "card_play");
-
+void card_play(game_t *game, uint card_index) {
+    error_game(game, "card_play");
+    card_t *card_played = 
+            deck_get_card_from_index(game->player_list[game->current_player],
+            card_index);
+    if (card_played->color == COLOR_BLACK || 
+        card_played->color == game->current_card->color || 
+        card_played->value == game->current_card->value) {
+        card_print(card_played, stdout);
+        printf("\n");
+        if (card_played->color == COLOR_BLACK) {
+            char c;
+            int color;
+            printf("Choose a color :\n"
+                "yellow = 1\n"
+                "blue = 2\n"
+                "green = 3\n"
+                "red = 4\n"
+                "\n> ");
+            scanf(" %c", &c);
+            color = (int)c - 54;
+            card_played->color = color;
+        }
+        game->current_card = card_played;
+        deck_remove(card_index, game->player_list[game->current_player]);
+        game_cycle_player(game);
+    } else {
+        printf("ERROR: cannot place selected card\n");
+    }
 }
 
-card_t *card_random_create(player_t *player) {
+card_t *card_random_create(void) {
     card_t *new_card = malloc(sizeof(card_t));
     error_card(new_card, "card_random_create");
     new_card->color = card_get_random_color();
     new_card->value = card_get_random_value(new_card->color);
-    if (player) {
-        player->nb_card++;
-    }
     return new_card;
 }
 
