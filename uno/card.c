@@ -26,7 +26,6 @@ void card_play(game_t *game, uint card_index) {
         game->current_card = card_played;
         deck_remove(card_index, game->player_list[game->current_player]);
         game_cycle_player(game);
-        card_play_effect(game);
     } else {
         printf("ERROR: cannot place selected card\n");
     }
@@ -44,11 +43,13 @@ void card_play_effect(game_t *game) {
             for (uint i = 0; i < 2; i++) {
                 deck_append(card_random_create(), next_player);
             }
+            game_cycle_player(game);
             break;
         case VALUE_PLUS_4:
             for (uint i = 0; i < 4; i++) {
                 deck_append(card_random_create(), next_player);
             }
+            game_cycle_player(game);
             break;
         case VALUE_REVERSE:
             game->cycle = !game->cycle;

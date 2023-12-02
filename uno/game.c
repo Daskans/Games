@@ -1,7 +1,7 @@
 #include "uno.h"
 
 void game_print_help(void) {
-    printf("- press 'p <n>' to play card number (n)\n");
+    printf("- press 'p <n>' to play card number <n>\n");
     printf("- press 't' to take from the pile\n");
     printf("- press 'q' to quit\n");
 }
