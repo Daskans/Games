@@ -10,7 +10,7 @@ bool game_won(game_t *game) {
     error_game(game, "game_won");
     for (uint i = 0; i <= game->nb_player-1; i++) {
         if (game->player_list[i]->nb_card == 0) {
-            printf("game over\n");
+            printf("Player [%s] wins !\n", game->player_list[i]->name);
             return true;
         }
     }
@@ -21,6 +21,7 @@ void game_update(game_t *game) {
     error_game(game, "game_update");
     //FILE *file = fopen("player.txt", "w");
     FILE *file = stdout;
+    card_play_effect(game);
     fprintf(file, "current player : ");
     fprintf(file, "%s\n", game->player_list[game->current_player]->name);
     fprintf(file, "current card : ");
@@ -59,7 +60,7 @@ int game_play(game_t *game) {
         } else if (c == 'p') {
             uint n;
             scanf(" %d", &n);
-            if (n < player->nb_card) {
+            if (n <= player->nb_card) {
                 printf("> action: play ");
                 card_play(game, n-1);
             }
@@ -73,17 +74,27 @@ int game_play(game_t *game) {
 
 void game_cycle_player(game_t *game) {
     error_game(game, "game_cycle_player");
-    if (game->current_player < game->nb_player-1) {
-        printf("test\n");
-        game->current_player++;
+    if (game->cycle = true) {
+        if (game->current_player < game->nb_player-1) {
+            printf("test\n");
+            game->current_player++;
+        } else {
+            game->current_player = 0;
+        }
     } else {
-        game->current_player = 0;
+        if (game->current_player > 0) {
+            printf("test\n");
+            game->current_player--;
+        } else {
+            game->current_player = game->nb_player-1;
+        }
     }
 }
 
 int main(void) {
     srand(time(NULL));
     game_t *game = malloc(sizeof(game_t));
+    game->cycle = true;
     game->nb_player = 2;
     player_t *player1 = malloc(sizeof(player_t));
     strcpy(player1->name, "player_1");

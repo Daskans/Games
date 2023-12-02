@@ -70,6 +70,7 @@ typedef struct game {
     player_t **player_list;
     uint nb_player;
     uint current_player;
+    bool cycle; // true for left to right, false for reverse
  } game_t;
 
 // implement errors
@@ -87,6 +88,8 @@ void deck_print(player_t *player, FILE *file);
 card_t *deck_get_card_from_index(player_t *player, uint index);
 
 // implement card actions
+void card_play(game_t* game, uint card_index);
+void card_play_effect(game_t *game);
 card_t *card_random_create(void);
 uint card_get_random_value(color_t color);
 uint card_get_random_value_black(void);
@@ -95,7 +98,6 @@ color_t card_get_random_color(void);
 void card_print(card_t *card, FILE *file);
 char *card_print_value(uint value);
 char *card_print_color(color_t color);
-void card_play(game_t* game, uint card_index);
 
 // implement game actions
 void game_print_help(void);
