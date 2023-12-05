@@ -91,6 +91,20 @@ void game_cycle_player(game_t *game) {
     }
 }
 
+void game_delete(game_t *game) {
+    if (game) {
+        if (game->player_list) {
+            for (uint i = 0; i < game->nb_player; i++) {
+                if (game->player_list[i]) {
+                    free(game->player_list[i]);
+                }
+            }
+            free(game->player_list);
+        }
+        free(game);
+    }
+}
+
 int main(void) {
     srand(time(NULL));
     game_t *game = malloc(sizeof(game_t));
@@ -106,5 +120,6 @@ int main(void) {
     game_init(game);
     game_play(game);
     fprintf(stdout, "game over\n");
+    game_delete(game);
     return EXIT_SUCCESS;
 }

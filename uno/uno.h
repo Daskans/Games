@@ -106,3 +106,4 @@ void game_update(game_t *game);
 void game_init(game_t *game);
 int game_play(game_t *game);
 void game_cycle_player(game_t *game);
+void game_delete(game_t *game);

@@ -8,14 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/daskans/Code/Games/uno/card.c" "CMakeFiles/game.dir/card.c.o" "gcc" "CMakeFiles/game.dir/card.c.o.d"
-  "/home/daskans/Code/Games/uno/deck.c" "CMakeFiles/game.dir/deck.c.o" "gcc" "CMakeFiles/game.dir/deck.c.o.d"
-  "/home/daskans/Code/Games/uno/error.c" "CMakeFiles/game.dir/error.c.o" "gcc" "CMakeFiles/game.dir/error.c.o.d"
-  "/home/daskans/Code/Games/uno/game.c" "CMakeFiles/game.dir/game.c.o" "gcc" "CMakeFiles/game.dir/game.c.o.d"
+  "/net/cremi/kbalavoine/Bureau/espaces/perso/Games/uno/card.c" "CMakeFiles/game.dir/card.c.o" "gcc" "CMakeFiles/game.dir/card.c.o.d"
+  "/net/cremi/kbalavoine/Bureau/espaces/perso/Games/uno/deck.c" "CMakeFiles/game.dir/deck.c.o" "gcc" "CMakeFiles/game.dir/deck.c.o.d"
+  "/net/cremi/kbalavoine/Bureau/espaces/perso/Games/uno/error.c" "CMakeFiles/game.dir/error.c.o" "gcc" "CMakeFiles/game.dir/error.c.o.d"
+  "/net/cremi/kbalavoine/Bureau/espaces/perso/Games/uno/game.c" "CMakeFiles/game.dir/game.c.o" "gcc" "CMakeFiles/game.dir/game.c.o.d"
   )
 
-# Targets to which this target links.
-set(CMAKE_TARGET_LINKED_INFO_FILES
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

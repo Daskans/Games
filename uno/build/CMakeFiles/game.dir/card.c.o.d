@@ -1,5 +1,7 @@
-CMakeFiles/game.dir/card.c.o: /home/daskans/Code/Games/uno/card.c \
- /usr/include/stdc-predef.h /home/daskans/Code/Games/uno/uno.h \
+CMakeFiles/game.dir/card.c.o: \
+ /net/cremi/kbalavoine/Bureau/espaces/perso/Games/uno/card.c \
+ /usr/include/stdc-predef.h \
+ /net/cremi/kbalavoine/Bureau/espaces/perso/Games/uno/uno.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -9,8 +11,8 @@ CMakeFiles/game.dir/card.c.o: /home/daskans/Code/Games/uno/card.c \
  /usr/include/x86_64-linux-gnu/bits/long-double.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
  /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -48,7 +50,7 @@ CMakeFiles/game.dir/card.c.o: /home/daskans/Code/Games/uno/card.c \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h /usr/include/string.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h /usr/include/math.h \
